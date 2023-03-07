@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-three/cannon": "^3.1.2",
-    "@react-three/drei": "^7.12.5",
-    "@react-three/fiber": "^4.2.21",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-merge-refs": "^1.1.0",
-    "react-spring": "^8.0.27",
-    "three": "^0.120.1",
-    "zustand": "^3.0.3"
+    "@react-spring/web": "^9.7.1",
+    "@react-three/cannon": "^6.5.2",
+    "@react-three/drei": "^9.57.0",
+    "@react-three/fiber": "^8.11.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-merge-refs": "^2.0.1",
+    "three": "^0.150.1",
+    "zustand": "^4.3.6"
   },
   "scripts": {
     "start": "",
@@ -33,5 +33,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }

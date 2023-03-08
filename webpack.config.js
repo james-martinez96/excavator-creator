@@ -7,20 +7,26 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
+    // filename: '[name][contenthash].js',
+    filename: 'bundle.js',
+    clean: true,
+    assetModuleFilename: '[name][ext]'
   },
 
+  // Dev settings
+  devtool: 'source-map',
   devServer: {
     static: { 
       // directory: resolve(__dirname, 'dist')
     },
     port: 3000,
-    open: true, // open browser window
+    // open: true, // open browser window
     hot: true, // hot module reloading
     compress: true, // gzip
     historyApiFallback: true,
   },
 
+  // PLUGINS
   plugins: [
     new HTMLWebpackPlugin({
       template: './public/index.html'
@@ -34,6 +40,7 @@ module.exports = {
     //extensions: ['.js', '.jsx'],
   },
 
+  // WEBPACK MODULES
   module: {
     rules: [
       { // BABEL
@@ -51,18 +58,18 @@ module.exports = {
         test: /.css$/,
         oneOf: [
           {
-            assert: { type: "css" },
-            loader: "css-loader",
+            assert: { type: 'css' },
+            loader: 'css-loader',
             options: {
-              exportType: "css-style-sheet",
+              exportType: 'css-style-sheet',
               // Other options
             },
           },
           {
             use: [
-              "style-loader",
+              'style-loader',
               {
-                loader: "css-loader",
+                loader: 'css-loader',
                 options: {
                   // Other options
                 },
@@ -71,6 +78,10 @@ module.exports = {
           },
         ],
       },
+      { // images
+        test: /\.(jpg|jpeg|png|svg|gif|ico)$/i,
+        type: 'asset/resource'
+      }
     ],
   },
 };

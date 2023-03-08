@@ -1,11 +1,11 @@
 import React from 'react';
-import { usePlane } from 'use-cannon';
+import { usePlane } from '@react-three/cannon';
 import { TextureLoader, RepeatWrapping } from 'three';
 import grass from '../images/grass.jpg';
 
 import { useStore } from '../hooks/useStore';
 
-export default function Ground(props) {
+export const Ground = (props) => {
   const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props }));
   const [addCube, type] = useStore((state) => [state.addCube, state.type]);
   const texture = new TextureLoader().load(grass);
@@ -22,7 +22,7 @@ export default function Ground(props) {
         addCube(Math.ceil(x), Math.ceil(y), Math.ceil(z), type);
       }}
     >
-      <planeBufferGeometry attach="geometry" args={[100, 100]} />
+      <planeGeometry attach='geometry' args={[100, 100]} />
       <meshStandardMaterial map={texture} attach="material" />
     </mesh>
   );

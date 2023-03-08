@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js',
 
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, 'dist'),
     // filename: '[name][contenthash].js',
     filename: 'bundle.js',
     clean: true,
@@ -16,7 +16,7 @@ module.exports = {
   // Dev settings
   devtool: 'source-map',
   devServer: {
-    static: { 
+    static: {
       // directory: resolve(__dirname, 'dist')
     },
     port: 3000,
@@ -29,7 +29,8 @@ module.exports = {
   // PLUGINS
   plugins: [
     new HTMLWebpackPlugin({
-      template: './public/index.html'
+      template: './public/index.html',
+      favicon: './public/favicon.ico'
     })
   ],
 

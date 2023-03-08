@@ -8,17 +8,19 @@ import { Cube } from './components/Cube';
 
 function App() {
   return (
-    <Canvas shadowMap sRGB>
+    <>
+      <div>outside canvas</div>
 
-      <Sky sunPosition={( 100, 20, 100 )}/>,
-      <ambientLight intensity={0.25}/>
-      <pointLight castShadow intensity={0.7} position={[100, 100, 100]}/>
-
-      <Physics gravity={[0, -30, 0]}>
-        <Cube position={[0, 0, 0]} type='wood'/>
-        <Ground position={[0, 0.5, 0]}/>
-      </Physics>
-    </Canvas>
+      <Canvas>
+        <Sky sunPosition={( 100, 20, 100 )}/>,
+        <ambientLight intensity={0.25}/>
+        <pointLight castShadow intensity={0.7} position={[100, 100, 100]}/>
+        <Physics gravity={[0, -30, 0]}>
+          <Cube position={[0, 0, 0]} type='woodTexture'/>
+          <Ground position={[0, 0.5, 0]}/>
+        </Physics>
+      </Canvas>
+    </>
   );
 }
 

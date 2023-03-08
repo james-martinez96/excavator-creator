@@ -1,29 +1,23 @@
 import React from 'react';
 import { usePlane } from '@react-three/cannon';
-import { TextureLoader, RepeatWrapping } from 'three';
-import grass from '../images/grass.jpg';
+import { groundTexture } from '../images/texture-loader';
+import { NearestFilter, RepeatWrapping } from 'three';
 
-import { useStore } from '../hooks/useStore';
+export const Ground = () => {
+  const [ref] = usePlane(() => ({
+    rotation: [-Math.PI / 4, 0, 0], position: [0,0,0]
+  }))
 
-export const Ground = (props) => {
-  const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props }));
-  const [addCube, type] = useStore((state) => [state.addCube, state.type]);
-  const texture = new TextureLoader().load(grass);
-  texture.wrapS = RepeatWrapping;
-  texture.wrapT = RepeatWrapping;
-  texture.repeat.set(100, 100);
+  // wrap texture
+  groundTexture.magFilter = NearestFilter
+  groundTexture.wrapS = RepeatWrapping
+  groundTexture.wrapT = RepeatWrapping
+  groundTexture.repeat.set(100,100)
+
   return (
-    <mesh
-      ref={ref}
-      receiveShadow
-      onClick={(e) => {
-        e.stopPropagation();
-        const { x, y, z } = e.point;
-        addCube(Math.ceil(x), Math.ceil(y), Math.ceil(z), type);
-      }}
-    >
-      <planeGeometry attach='geometry' args={[100, 100]} />
-      <meshStandardMaterial map={texture} attach="material" />
+    <mesh ref={ref}>
+      <planeGeometry attach={'geometry'} args={[100,100]}/>
+      <meshStandardMaterial attach={'material'} map={groundTexture}/>
     </mesh>
-  );
+  )
 }

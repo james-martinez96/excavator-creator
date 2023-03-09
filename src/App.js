@@ -5,6 +5,7 @@ import { Physics } from '@react-three/cannon';
 
 import { Ground } from './components/Ground';
 import { Cube } from './components/Cube';
+import { Player } from './components/Player';
 
 function App() {
   return (
@@ -12,12 +13,13 @@ function App() {
       <div>outside canvas</div>
 
       <Canvas>
-        <Sky sunPosition={( 100, 20, 100 )}/>,
-        <ambientLight intensity={0.25}/>
-        <pointLight castShadow intensity={0.7} position={[100, 100, 100]}/>
+        <Sky sunPosition={(100, 20, 100)} />,
+        <ambientLight intensity={0.25} />
+        <pointLight castShadow intensity={0.7} position={[100, 100, 100]} />
         <Physics gravity={[0, -30, 0]}>
-          <Cube position={[0, 0, 0]} type='woodTexture'/>
-          <Ground position={[0, 0.5, 0]}/>
+          <Player position={[0, 1, 0]} />
+          <Cube position={[0, 0, -5]} type='woodTexture' />
+          <Ground position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]} />
         </Physics>
       </Canvas>
     </>

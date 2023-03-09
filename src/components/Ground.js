@@ -3,21 +3,22 @@ import { usePlane } from '@react-three/cannon';
 import { groundTexture } from '../images/texture-loader';
 import { NearestFilter, RepeatWrapping } from 'three';
 
-export const Ground = () => {
+export const Ground = ({ position, rotation }) => {
   const [ref] = usePlane(() => ({
-    rotation: [-Math.PI / 4, 0, 0], position: [0,0,0]
+    rotation,
+    position,
   }))
 
   // wrap texture
   groundTexture.magFilter = NearestFilter
   groundTexture.wrapS = RepeatWrapping
   groundTexture.wrapT = RepeatWrapping
-  groundTexture.repeat.set(100,100)
+  groundTexture.repeat.set(100, 100)
 
   return (
     <mesh ref={ref}>
-      <planeGeometry attach={'geometry'} args={[100,100]}/>
-      <meshStandardMaterial attach={'material'} map={groundTexture}/>
+      <planeGeometry attach={'geometry'} args={[100, 100]} />
+      <meshStandardMaterial attach={'material'} map={groundTexture} />
     </mesh>
   )
 }

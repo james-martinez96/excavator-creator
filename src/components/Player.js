@@ -2,8 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useSphere } from '@react-three/cannon';
 import { Vector3 } from 'three';
+import { useKeyboard } from '../hooks/useKeyboard';
 
 export const Player = ({ position }) => {
+
+  // Debug
+  const actions = useKeyboard()
+  console.log('actions', Object.entries(actions).filter(([k,v]) => v))
+
   const { camera } = useThree()
   const [ref, api] = useSphere(() => ({
     mass: 1,
@@ -24,7 +30,7 @@ export const Player = ({ position }) => {
   }, [api.position])
 
   useFrame(() => {
-    console.log('frame')
+    console.log('frame') // Debug
     // copy position every frame
     // so the camera follows the sphere
     camera.position.copy(new Vector3(pos.current[0], pos.current[1], pos.current[2]))

@@ -4,8 +4,9 @@ import * as textures from '../images/texture-loader';
 
 export const Cube = ({ position, type }) => {
   const [ref] = useBox(() => ({
+    mass: 1,
     position,
-    type: 'Static',
+    type: 'Dynamic',
   }));
 
   return (

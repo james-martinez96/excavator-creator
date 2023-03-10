@@ -2,11 +2,11 @@
 - [x] Sky
 - [x] Textures and images
 - [x] Ground
-- [] Player
+- [x] Player
 - [x] Keyboard inputs
-- [] First person view
-- [] Gravity
-- [] Movement
+- [x] First person view
+- [x] Gravity
+- [x] Movement
 - [] State management
 - [] Cube type selector
 - [] Save world in local storage

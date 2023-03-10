@@ -20,12 +20,12 @@ function App() {
         <FPV />
         <Physics /*gravity={[0, -30, 0]}*/>
           <Player position={[0, 1, 0]} />
-          <Cube position={[0, 0, -5]} type='woodTexture' />
+          <Cube position={[0, 0, -5]} texture='woodTexture' />
           <Ground position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]} />
         </Physics>
       </Canvas>
 
-      {/*this div has to be outside <Canvas/> */}
+      /*this div has to be outside <Canvas/> */
       <div className='absolute centered cursor'>+</div>
     </>
   );

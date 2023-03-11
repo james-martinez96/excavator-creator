@@ -24,7 +24,7 @@ export const useStore = create((set) => ({
         ...prev.cubes,
         {
           key: nanoid(),
-          pos: [x, y, z],
+          position: [x, y, z],
           texture: prev.texture
         }
       ]

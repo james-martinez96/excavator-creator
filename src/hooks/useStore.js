@@ -1,31 +1,42 @@
 import { create } from 'zustand';
-
-const getLocalStorage = (key) => JSON.parse(window.localStorage.getItem(key));
-const setLocalStorage = (key, value) => window.localStorage.setItem(key, JSON.stringify(value));
+import { nanoid } from 'nanoid'
 
 export const useStore = create((set) => ({
-  cubes: getLocalStorage('world') || [{ pos: [0, 0, 0], type: 'wood' }],
 
-  // add new cube to cubes array
-  addCube: (x, y, z, type) =>
-    set((state) => ({
-      cubes: [...state.cubes, { pos: [x, y, z], type }],
-    })),
+  cubes: [
+    // these are for testing
+    {
+      key: nanoid(),
+      position: [0, 1, -5],
+      texture: 'dirt',
+    },
+    {
+      key: nanoid(),
+      position: [0, 2, -5],
+      texture: 'glass',
+    }
+  ],
 
-  // remove cube
-  removeCube: (x, y, z) => set((state) => 
-    // if any coords do not match keep if else filter it out
-    state.cubes.filter(cube => cube.x !== x || cube.y !== y || cube.z !== z
-    )
-  ),
+  // add cube to world
+  addCube: (x, y, z) => {
+    set((prev) => ({
+      cubes: [
+        ...prev.cubes,
+        {
+          key: nanoid(),
+          pos: [x, y, z],
+          texture: prev.texture
+        }
+      ]
+    }))
+  },
 
-  // set texture
-  // wood is the default
-  texture: 'wood',
-  setTexture: (texture) => set((state) => ({ texture })),
+  // remove cube from world
+  removeCube: () => { },
 
-  // save cube
-  saveWorld: () => set((state => {
-    setLocalStorage('world', state.cubes)
-  })),
+  // set cube texture
+  setTexture: () => { },
+
+  // save world
+  saveWorld: () => { },
 }))

@@ -8,6 +8,7 @@
     "@react-three/cannon": "^6.5.2",
     "@react-three/drei": "^9.57.0",
     "@react-three/fiber": "^8.11.9",
+    "nanoid": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-merge-refs": "^1.1.0",

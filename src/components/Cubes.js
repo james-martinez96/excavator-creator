@@ -7,7 +7,7 @@ export const Cubes = () => {
     state.cubes
   ])
 
-  console.log(cubes)
+  console.log('Cubes:', cubes)
 
   return cubes.map(({ key, position, texture }) => {
     return (

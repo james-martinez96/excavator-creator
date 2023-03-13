@@ -3,18 +3,20 @@ import { nanoid } from 'nanoid'
 
 export const useStore = create((set) => ({
 
+  texture: 'dirt',
+
   cubes: [
-    // these are for testing
-    {
-      key: nanoid(),
-      position: [0, 1, -5],
-      texture: 'dirt',
-    },
-    {
-      key: nanoid(),
-      position: [0, 2, -5],
-      texture: 'glass',
-    }
+    // // these are for testing
+    // {
+    //   key: nanoid(),
+    //   position: [0, 1, -5],
+    //   texture: 'dirt',
+    // },
+    // {
+    //   key: nanoid(),
+    //   position: [0, 2, -5],
+    //   texture: 'glass',
+    // }
   ],
 
   // add cube to world

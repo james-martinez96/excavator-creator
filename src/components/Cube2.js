@@ -4,13 +4,12 @@ import * as textures from '../images/texture-loader';
 
 export const Cube = ({ position, texture }) => {
   const [ref] = useBox(() => ({
-    mass: 1,
     position,
-    type: 'Dynamic',
+    type: 'Static',
   }));
 
   const activeTexture = textures[texture + 'Texture']
-  console.log('activeTexture', activeTexture)
+  // console.log('active Texture', activeTexture, texture)
 
   return (
     <mesh ref={ref}>

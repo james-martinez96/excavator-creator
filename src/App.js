@@ -23,7 +23,7 @@ function App() {
           <Player position={[0, 1, 0]} />
           <Cube position={[0, 0, -5]} texture='woodTexture' />
           <Cubes />
-          <Ground position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]} />
+          <Ground position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]} />
         </Physics>
       </Canvas>
 

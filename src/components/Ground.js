@@ -21,7 +21,7 @@ export const Ground = ({ position, rotation }) => {
     <mesh
       onClick={(e) => {
         e.stopPropagation()
-        // Math.ceil is inacurate when placing cubes
+        // Math.ceil is inaccurate when placing cubes
         const [x, y, z] = Object.values(e.point).map(val => Math.ceil(val))
         addCube(x, y, z)
         console.log(e.point)

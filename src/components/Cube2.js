@@ -9,7 +9,7 @@ export const Cube = ({ position, texture }) => {
     type: 'Static',
   }));
 
-  const [addCube] = useStore((state) => [state.addCube])
+  const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
 
   const activeTexture = textures[texture + 'Texture']
   // console.log('active Texture', activeTexture, texture)
@@ -24,28 +24,35 @@ export const Cube = ({ position, texture }) => {
 
         console.log('face', clickedFace)
 
-        // determine witch face was clicked and add a cube next to it
-        switch (clickedFace) {
-          case 0:
-            addCube(x + 1, y, z);
-            break;
-          case 1:
-            addCube(x - 1, y, z);
-            break;
-          case 2:
-            addCube(x, y + 1, z);
-            break;
-          case 3:
-            addCube(x, y - 1, z);
-            break;
-          case 4:
-            addCube(x, y, z + 1);
-            break;
-          case 5:
-            addCube(x, y, z - 1);
-            break;
-          default:
-            break
+        // if alt is held down then remove cube
+        // else determine witch face was clicked and add a cube next to it
+        if (e.altKey) {
+          removeCube(x, y, z)
+          return
+        }
+        else {
+          switch (clickedFace) {
+            case 0:
+              addCube(x + 1, y, z);
+              break;
+            case 1:
+              addCube(x - 1, y, z);
+              break;
+            case 2:
+              addCube(x, y + 1, z);
+              break;
+            case 3:
+              addCube(x, y - 1, z);
+              break;
+            case 4:
+              addCube(x, y, z + 1);
+              break;
+            case 5:
+              addCube(x, y, z - 1);
+              break;
+            default:
+              break;
+          }
         }
       }}
       ref={ref}>

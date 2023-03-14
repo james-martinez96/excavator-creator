@@ -34,7 +34,16 @@ export const useStore = create((set) => ({
   },
 
   // remove cube from world
-  removeCube: () => { },
+  // keep cubes that are not equal to x,y,z being passed in
+  removeCube: (x, y, z) => {
+    console.log('removed cube at: ', x, y, z)
+    set((prev) => ({
+      cubes: prev.cubes.filter(cube => {
+        const [X, Y, Z] = cube.position
+        return X != x || Y != y || Z != z
+      })
+    }))
+  },
 
   // set cube texture
   setTexture: () => { },

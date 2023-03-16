@@ -25,6 +25,15 @@ body {
   overscroll-behavior-y: none;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   color: black;
+  font-size: 40px
+}
+
+.flex {
+  display: flex;
+}
+
+.relative {
+  position: relative;
 }
 
 .absolute {
@@ -39,4 +48,12 @@ body {
 
 .cursor {
   color: white;
+}
+
+.texture-selector {
+  transform: scale(5);
+}
+
+.texture-selector img.active {
+  border: 2px solid red;
 }

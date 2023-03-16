@@ -46,7 +46,12 @@ export const useStore = create((set) => ({
   },
 
   // set cube texture
-  setTexture: () => { },
+  // based on the incoming texture
+  setTexture: (texture) => {
+    set(() => ({
+      texture
+    }))
+  },
 
   // save world
   saveWorld: () => { },

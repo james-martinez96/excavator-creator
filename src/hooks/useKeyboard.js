@@ -23,11 +23,13 @@ export const useKeyboard = () => {
     moveLeft: false,
     moveRight: false,
     jump: false,
-    texture1: false,
-    texture2: false,
-    texture3: false,
-    texture4: false,
-    texture5: false,
+    // order matters when selecting textures
+    // because each texture is assigned a digit
+    dirt: false,
+    grass: false,
+    glass: false,
+    wood: false,
+    log: false,
   })
 
   // react on key Down

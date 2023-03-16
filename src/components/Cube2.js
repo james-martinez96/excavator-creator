@@ -12,13 +12,14 @@ export const Cube = ({ position, texture }) => {
   const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
 
   const activeTexture = textures[texture + 'Texture']
-  // console.log('active Texture', activeTexture, texture)
+  console.log('active Texture', activeTexture, texture)
 
   return (
     <mesh
       onClick={(e) => {
         e.stopPropagation()
         // divide faceIndex to be in range 0-5 instead of 0-11
+        // so the cubes have 6 faces instead on 12
         const clickedFace = Math.floor(e.faceIndex / 2)
         const [x, y, z] = ref.current.position
 

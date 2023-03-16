@@ -10,6 +10,6 @@
 - [x] State management
 - [x] Placing cubes
 - [x] Removing cubes
-- [] Cube type selector
+- [x] Cube type selector
 - [] Save world in local storage
 - [] Build a house

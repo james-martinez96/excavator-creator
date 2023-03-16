@@ -8,6 +8,7 @@ import { Cube } from './components/Cube';
 import { Player } from './components/Player';
 import { FPV } from './components/FPV';
 import { Cubes } from './components/Cubes'
+import { TextureSelector } from './components/TextureSelector';
 
 function App() {
   return (
@@ -27,8 +28,9 @@ function App() {
         </Physics>
       </Canvas>
 
-      /*this div has to be outside <Canvas /> */
+      {/*this div has to be outside <Canvas /> */}
       <div className='absolute centered cursor'>+</div>
+      <TextureSelector/>
     </>
   );
 }

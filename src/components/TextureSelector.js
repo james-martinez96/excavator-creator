@@ -13,7 +13,7 @@ const images = {
   wood: woodImg,
   log: logImg,
 }
-console.log(images)
+console.log('Loaded images: ', images)
 
 // selecting textures using keyboard
 export const TextureSelector = () => {

@@ -12,7 +12,7 @@ export const Cube = ({ position, texture }) => {
   const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
 
   const activeTexture = textures[texture + 'Texture']
-  console.log('active Texture', activeTexture, texture)
+  // console.log('active Texture', activeTexture, texture)
 
   return (
     <mesh
@@ -23,7 +23,7 @@ export const Cube = ({ position, texture }) => {
         const clickedFace = Math.floor(e.faceIndex / 2)
         const [x, y, z] = ref.current.position
 
-        console.log('face', clickedFace)
+        console.log('Face', clickedFace)
 
         // if alt is held down then remove cube
         // else determine witch face was clicked and add a cube next to it

@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid'
 
 export const useStore = create((set) => ({
 
+  // this is the default selected texture
   texture: 'dirt',
 
   cubes: [

@@ -24,7 +24,7 @@ export const Ground = ({ position, rotation }) => {
         // Math.ceil is inaccurate when placing cubes
         const [x, y, z] = Object.values(e.point).map(val => Math.ceil(val))
         addCube(x, y, z)
-        console.log(e.point)
+        console.log('Clicked Ground: ', e.point)
       }}
       ref={ref}
     >

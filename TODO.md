@@ -11,5 +11,5 @@
 - [x] Placing cubes
 - [x] Removing cubes
 - [x] Cube type selector
-- [] Save world in local storage
+- [x] Save world in local storage
 - [] Build a house

@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 const getLocalStorage = (key) => JSON.parse(window.localStorage.getItem(key))
 const setLocalStorage = (key, value) => window.localStorage.setItem(key, JSON.stringify(value))
 
+/** for storing and removing cubes from the world */
 export const useStore = create((set) => ({
 
   // this is the default selected texture

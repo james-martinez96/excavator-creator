@@ -15,5 +15,10 @@ module.exports = {
     'react'
   ],
   rules: {
+    /*
+      work around for
+      https://github.com/pmndrs/react-three-fiber/discussions/2487
+    */
+    'react/no-unknown-property': ['off', { ignore: ['js'] }]
   }
 }

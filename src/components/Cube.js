@@ -1,13 +1,13 @@
-import React from 'react';
-import { useBox } from '@react-three/cannon';
-import * as textures from '../images/texture-loader';
+import React from 'react'
+import { useBox } from '@react-three/cannon'
+import * as textures from '../images/texture-loader'
 
-export const Cube = ({ position, texture}) => {
+export const Cube = ({ position, texture }) => {
   const [ref] = useBox(() => ({
     mass: 1,
     position,
-    type: 'Dynamic',
-  }));
+    type: 'Dynamic'
+  }))
 
   return (
     <mesh ref={ref}>
@@ -21,4 +21,4 @@ export const Cube = ({ position, texture}) => {
       <boxGeometry attach='geometry' />
     </mesh>
   )
-};
+}

@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from 'react'
 
-function actionByKey(key) {
+function actionByKey (key) {
   const keyActionMap = {
     KeyW: 'moveForward',
     KeyS: 'moveBackward',
@@ -11,7 +11,7 @@ function actionByKey(key) {
     Digit2: 'grass',
     Digit3: 'glass',
     Digit4: 'wood',
-    Digit5: 'log',
+    Digit5: 'log'
   }
   return keyActionMap[key]
 }
@@ -29,7 +29,7 @@ export const useKeyboard = () => {
     grass: false,
     glass: false,
     wood: false,
-    log: false,
+    log: false
   })
 
   // react on key Down

@@ -1,8 +1,7 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { useKeyboard } from '../hooks/useKeyboard';
-import { useStore } from '../hooks/useStore';
-import { dirtImg, grassImg, glassImg, logImg, woodImg} from '../images/image-loader.js';
+import React, { useEffect, useState } from 'react'
+import { useKeyboard } from '../hooks/useKeyboard'
+import { useStore } from '../hooks/useStore'
+import { dirtImg, grassImg, glassImg, logImg, woodImg } from '../images/image-loader.js'
 
 const images = {
   // order matters when selecting textures
@@ -11,7 +10,7 @@ const images = {
   grass: grassImg,
   glass: glassImg,
   wood: woodImg,
-  log: logImg,
+  log: logImg
 }
 console.log('Loaded images: ', images)
 
@@ -24,7 +23,7 @@ export const TextureSelector = () => {
     grass,
     glass,
     wood,
-    log,
+    log
   } = useKeyboard()
 
   useEffect(() => {
@@ -33,11 +32,11 @@ export const TextureSelector = () => {
       grass,
       glass,
       wood,
-      log,
+      log
     }
 
     const selectedTexture = Object.entries(textures).find(([k, v]) => v)
-    if(selectedTexture){
+    if (selectedTexture) {
       console.log('selected texture: ', selectedTexture[0])
       setTexture(selectedTexture[0])
     }
@@ -57,7 +56,7 @@ export const TextureSelector = () => {
   // return a div that returns a img
   return visible && (
     <div className='absolute centered texture-selector'>
-      {Object.entries(images).map(([k,src]) => {
+      {Object.entries(images).map(([k, src]) => {
         return (
           <img
             key={k}

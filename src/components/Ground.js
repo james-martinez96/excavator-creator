@@ -1,13 +1,13 @@
-import React from 'react';
-import { usePlane } from '@react-three/cannon';
-import { groundTexture } from '../images/texture-loader';
-import { RepeatWrapping } from 'three';
-import { useStore } from '../hooks/useStore';
+import React from 'react'
+import { usePlane } from '@react-three/cannon'
+import { groundTexture } from '../images/texture-loader'
+import { RepeatWrapping } from 'three'
+import { useStore } from '../hooks/useStore'
 
 export const Ground = ({ position, rotation }) => {
   const [ref] = usePlane(() => ({
     rotation,
-    position,
+    position
   }))
 
   const [addCube] = useStore((state) => [state.addCube])

@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
-import { useSphere } from '@react-three/cannon';
-import { Vector3 } from 'three';
-import { useKeyboard } from '../hooks/useKeyboard';
+import React, { useEffect, useRef } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
+import { useSphere } from '@react-three/cannon'
+import { Vector3 } from 'three'
+import { useKeyboard } from '../hooks/useKeyboard'
 
 const JUMP_VELOCITY = 5
 const SPEED = 4
 export const Player = ({ position }) => {
-
   const { moveForward, moveBackward, moveLeft, moveRight, jump } = useKeyboard()
   // console.log('moveForward', Object.entries(useKeyboard).filter(([k, v]) => v)) // Debug
 
@@ -15,19 +14,19 @@ export const Player = ({ position }) => {
   const [ref, api] = useSphere(() => ({
     mass: 1,
     type: 'Dynamic',
-    position,
+    position
   }))
 
   // set velocity
   const vel = useRef([0, 0, 0])
   useEffect(() => {
-    api.velocity.subscribe((v) => vel.current = v)
+    api.velocity.subscribe((v) => { vel.current = v })
   }, [api.velocity])
 
   // set position
   const pos = useRef([0, 0, 0])
   useEffect(() => {
-    api.position.subscribe((p) => pos.current = p)
+    api.position.subscribe((p) => { pos.current = p })
   }, [api.position])
 
   useFrame(() => {
@@ -44,13 +43,13 @@ export const Player = ({ position }) => {
     const frontVector = new Vector3(
       0,
       0,
-      (moveBackward ? 1 : 0) - (moveForward ? 1 : 0),
+      (moveBackward ? 1 : 0) - (moveForward ? 1 : 0)
     )
 
     const sideVector = new Vector3(
       (moveLeft ? 1 : 0) - (moveRight ? 1 : 0),
       0,
-      0,
+      0
     )
 
     direction

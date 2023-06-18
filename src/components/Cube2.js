@@ -1,13 +1,13 @@
-import React from 'react';
-import { useBox } from '@react-three/cannon';
-import * as textures from '../images/texture-loader';
-import { useStore } from '../hooks/useStore';
+import React from 'react'
+import { useBox } from '@react-three/cannon'
+import * as textures from '../images/texture-loader'
+import { useStore } from '../hooks/useStore'
 
 export const Cube = ({ position, texture }) => {
   const [ref] = useBox(() => ({
     position,
-    type: 'Static',
-  }));
+    type: 'Static'
+  }))
 
   const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
 
@@ -29,30 +29,28 @@ export const Cube = ({ position, texture }) => {
         // else determine witch face was clicked and add a cube next to it
         if (e.altKey) {
           removeCube(x, y, z)
-          return
-        }
-        else {
+        } else {
           switch (clickedFace) {
             case 0:
-              addCube(x + 1, y, z);
-              break;
+              addCube(x + 1, y, z)
+              break
             case 1:
-              addCube(x - 1, y, z);
-              break;
+              addCube(x - 1, y, z)
+              break
             case 2:
-              addCube(x, y + 1, z);
-              break;
+              addCube(x, y + 1, z)
+              break
             case 3:
-              addCube(x, y - 1, z);
-              break;
+              addCube(x, y - 1, z)
+              break
             case 4:
-              addCube(x, y, z + 1);
-              break;
+              addCube(x, y, z + 1)
+              break
             case 5:
-              addCube(x, y, z - 1);
-              break;
+              addCube(x, y, z - 1)
+              break
             default:
-              break;
+              break
           }
         }
       }}
@@ -61,4 +59,4 @@ export const Cube = ({ position, texture }) => {
       <boxGeometry attach='geometry' />
     </mesh>
   )
-};
+}

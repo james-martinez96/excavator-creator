@@ -1,62 +1,66 @@
-import React from 'react'
-import { useBox } from '@react-three/cannon'
-import * as textures from '../images/texture-loader'
-import { useStore } from '../hooks/useStore'
+import React from "react";
+import { useBox } from "@react-three/cannon";
+import * as textures from "../images/texture-loader";
+import { useStore } from "../hooks/useStore";
 
 export const Cube = ({ position, texture }) => {
   const [ref] = useBox(() => ({
     position,
-    type: 'Static'
-  }))
+    type: "Static",
+  }));
 
-  const [addCube, removeCube] = useStore((state) => [state.addCube, state.removeCube])
+  const [addCube, removeCube] = useStore((state) => [
+    state.addCube,
+    state.removeCube,
+  ]);
 
-  const activeTexture = textures[texture + 'Texture']
+  const activeTexture = textures[texture + "Texture"];
   // console.log('active Texture', activeTexture, texture)
 
   return (
     <mesh
       onClick={(e) => {
-        e.stopPropagation()
+        e.stopPropagation();
         // divide faceIndex to be in range 0-5 instead of 0-11
         // so the cubes have 6 faces instead on 12
-        const clickedFace = Math.floor(e.faceIndex / 2)
-        const [x, y, z] = ref.current.position
+        const clickedFace = Math.floor(e.faceIndex / 2);
+        const [x, y, z] = ref.current.position;
 
-        console.log('Face', clickedFace)
+        console.log("Face", clickedFace);
 
         // if alt is held down then remove cube
         // else determine witch face was clicked and add a cube next to it
         if (e.altKey) {
-          removeCube(x, y, z)
+          removeCube(x, y, z);
         } else {
           switch (clickedFace) {
             case 0:
-              addCube(x + 1, y, z)
-              break
+              addCube(x + 1, y, z);
+              break;
             case 1:
-              addCube(x - 1, y, z)
-              break
+              addCube(x - 1, y, z);
+              break;
             case 2:
-              addCube(x, y + 1, z)
-              break
+              addCube(x, y + 1, z);
+              break;
             case 3:
-              addCube(x, y - 1, z)
-              break
+              addCube(x, y - 1, z);
+              break;
             case 4:
-              addCube(x, y, z + 1)
-              break
+              addCube(x, y, z + 1);
+              break;
             case 5:
-              addCube(x, y, z - 1)
-              break
+              addCube(x, y, z - 1);
+              break;
             default:
-              break
+              break;
           }
         }
       }}
-      ref={ref}>
-      <meshStandardMaterial attachArray='material' map={activeTexture} />
-      <boxGeometry attach='geometry' />
+      ref={ref}
+    >
+      <meshStandardMaterial attachArray="material" map={activeTexture} />
+      <boxGeometry attach="geometry" />
     </mesh>
-  )
-}
+  );
+};

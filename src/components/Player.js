@@ -7,8 +7,7 @@ import { useKeyboard } from "../hooks/useKeyboard";
 const JUMP_VELOCITY = 5;
 const SPEED = 4;
 export const Player = ({ position }) => {
-  const { moveForward, moveBackward, moveLeft, moveRight, jump } =
-    useKeyboard();
+  const { moveForward, moveBackward, moveLeft, moveRight, jump } = useKeyboard();
   // console.log('moveForward', Object.entries(useKeyboard).filter(([k, v]) => v)) // Debug
 
   const { camera } = useThree();

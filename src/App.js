@@ -29,7 +29,6 @@ function App() {
         </Physics>
       </Canvas>
 
-      {/* this div has to be outside <Canvas /> */}
       <div className="absolute centered cursor">+</div>
       <TextureSelector />
       <Menu />

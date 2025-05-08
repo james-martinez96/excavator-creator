@@ -1,6 +1,7 @@
 {
-  "name": "excvator-creator",
+  "name": "excavator-creator",
   "version": "0.1.0",
+  "author": "James Martinez",
   "description": "A minecraft clone",
   "private": true,
   "dependencies": {
